@@ -8,10 +8,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'dawid-food-ordering.s3.amazonaws.com',
+        hostname: 'glewis-food-ordering.s3.amazonaws.com',
       },
-    ]
-  }
-}
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
