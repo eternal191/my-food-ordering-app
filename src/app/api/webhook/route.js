@@ -3,6 +3,7 @@ import { Order } from '@/models/Order';
 const stripe = require('stripe')(process.env.STRIPE_SK);
 
 export async function POST(req) {
+  console.log('inside the webhook');
   const sig = req.headers.get('stripe-signature');
   let event;
 
@@ -10,6 +11,7 @@ export async function POST(req) {
     const reqBuffer = await req.text();
     const signSecret = process.env.STRIPE_SIGN_SECRET;
     event = stripe.webhooks.constructEvent(reqBuffer, sig, signSecret);
+    console.log('stripe event--->',event)
   } catch (e) {
     console.error('stripe error');
     console.log(e);
@@ -17,7 +19,7 @@ export async function POST(req) {
   }
 
   if (event.type === 'checkout.session.completed') {
-    console.log(event);
+    console.log('checkout.session.completed---> ',event);
     const orderId = event?.data?.object?.metadata?.orderId;
     const isPaid = event?.data?.object?.payment_status === 'paid';
     if (isPaid) {

@@ -91,14 +91,25 @@ export default function CartPage() {
           {cartProducts?.length === 0 && (
             <div>No products in your shopping cart</div>
           )}
-          {cartProducts?.length > 0 &&
+  {/*        {cartProducts?.length > 0 &&
             cartProducts.map((product, index) => (
               <CartProduct
                 key={index}
                 product={product}
                 onRemove={removeCartProduct}
               />
-            ))}
+            ))}*/}
+
+          {/*guy from utube comments fix*/}
+          {cartProducts?.length > 0 && cartProducts.map((product, index) => (
+            <CartProduct
+              key={index}
+              product={product}
+              index={index} // Pass the index to the CartProduct component
+              onRemove={removeCartProduct}
+            />
+          ))}
+
           <div className="py-2 pr-16 flex justify-end items-center">
             <div className="text-gray-500">
               Subtotal:

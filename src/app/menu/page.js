@@ -8,9 +8,6 @@ export default function MenuPage() {
   const [menuItems, setMenuItems] = useState([]);
 
 
-  console.log({categories});
-  console.log({menuItems});
-
   useEffect(() => {
     fetch('/api/categories').then((res) => {
       res.json().then((categories) => setCategories(categories));
