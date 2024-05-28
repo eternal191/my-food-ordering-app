@@ -91,14 +91,6 @@ export default function CartPage() {
           {cartProducts?.length === 0 && (
             <div>No products in your shopping cart</div>
           )}
-  {/*        {cartProducts?.length > 0 &&
-            cartProducts.map((product, index) => (
-              <CartProduct
-                key={index}
-                product={product}
-                onRemove={removeCartProduct}
-              />
-            ))}*/}
 
           {/*guy from utube comments fix*/}
           {cartProducts?.length > 0 && cartProducts.map((product, index) => (
